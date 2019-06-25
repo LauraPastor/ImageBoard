@@ -1,0 +1,11 @@
+1. in the `data` for you main instance give the current image id an initial value of whatever is in the hash (i.e., `location.hash` with the first character removed). This will have the effect of making the modal pop open if there is a hash in the url when the page loads.
+
+2. Remove the click handlers from your image 'cards' and replace them with hrefs in links whose value are `'#' + image.id`
+
+3. Listen for the `"hashchange"` event on the `window` object and in the handler set the current image id to `location.hash` with the first character removed. This will make it so clicks on image cards pops open the modal.
+
+4. When closing the modal, also set `location.hash` to an empty string.
+
+5. Add a watcher to your modal component that detects when a new image id prop is received. When that happens, the watcher should do _exactly_ the same thing that the `mounted` method does.
+
+6. If the server fails to deliver am image, emit the event that causes the modal to close.

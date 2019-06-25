@@ -1,0 +1,304 @@
+body {
+    font-family: arial, sans-serif;
+    color: #a30404;
+    margin: 0;
+}
+
+.mainimages {
+    width:  300px;
+    height:  300px;
+    border-radius: 2px;
+    background-size:auto;
+
+}
+
+.image {
+    text-align: center;
+    border-radius: 2px;
+    padding: 10px;
+    width:  300px;
+    color: #393e46;
+}
+
+.uploadfield {
+    background-color: #222831;
+    padding: 10px 5px;
+    text-align: center;
+}
+
+input, label, button {
+    font-size: 20px;
+    border-radius: 1px;
+    padding: 5px;
+    margin: 2px;
+    background-color: #eeeeee;
+    border: 1px solid #393e46;
+    outline: none;
+}
+
+input:focus {
+    background-color: #a30404;
+    color: #eeeeee;
+    border: 1px solid #393e46;
+}
+
+input:focus::placeholder {
+    color: #eeeeee;
+    opacity: 1;
+}
+
+.inputtitle {width: 10%;}
+
+.file {background-color: #222831;}
+
+p {
+    margin: 2px 0px 2px 0px;
+    padding: 2px;
+    background-color: #a30404;
+    color: #eeeeee;
+    text-shadow: rgba(255,255,255,0.2) 0px 3px 3px;
+    font-weight: bold;
+}
+
+.title {text-align: center;}
+
+header {
+    background-color: #a30404;
+    text-align: center;
+}
+
+h1 {
+    display: inline-block;
+    font-family: 'Tangerine', sans-serif;
+    padding: 10px;
+    margin: 0;
+    font-size: 80px;
+    font-weight: bold;
+    background-color: #222831;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255,255,255,0.2) 0px 3px 3px;
+}
+
+i {
+    color: #222831;
+    display: inline-block;
+    background-color: #222831;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255,255,255,0.2) 0px 3px 3px;
+}
+
+.newimages {
+    text-align: center;
+    background-color: #a30404;
+    padding: 2px;
+}
+
+.newimages a {text-decoration: none;}
+
+
+/* ///////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////   Buttons       /////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////// */
+
+.pagination {
+    background-color: #a30404;
+    color: #eeeeee;
+    padding: 20px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    float: left;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.pagbuttonscontainer {margin-left: 40%;}
+
+/* ///////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////   MODAL       ///////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////// */
+
+.modal {
+    background-color: rgb(238,238,238,0.95);
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 2px;
+}
+
+h2 {color: #393e46;}
+
+.modalheader {
+    background-color: #eeeeee;
+    text-align: center;
+}
+
+.headerpart2 {background-color: #eeeeee;}
+
+.extrainfo {
+    background-color: #eeeeee;
+    color: #393e46;
+    text-transform: none;
+}
+
+.gridcol {border-radius: 2px;}
+
+p.gridcol {
+    border: 1px solid #393e46;
+    text-transform: none;
+    text-shadow: none;
+}
+
+.submitted {
+    margin-top: 30px;
+    padding-bottom: 0;
+}
+
+.mainimage {max-width: 80%;}
+
+.imagetitle {text-align: left;}
+
+.gridheader {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.maincontent {
+    position: relative;
+    margin: auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 1%;
+    padding-top: 10px;
+}
+
+p {
+    border-radius: 2px;
+    margin-bottom: 5px;
+    padding: 10px;
+    text-align: left;
+}
+
+span {
+    font-style: italic;
+    color: #eeeeee;
+}
+
+.commentuploadfield {background-color: #eeeeee;}
+
+.inline {display: inline-block;}
+
+.close {
+    color: #393e46;
+    text-shadow: 0;
+    position: absolute;
+    right: 0;
+    margin-top: 2%;
+    margin-right: 2%;
+}
+
+.twocolgrid {
+    
+    grid-template-columns: 49% 49%;
+    grid-gap: 1%;
+    background-color: #eeeeee;
+}
+
+.bigimage {
+    text-align: center;
+
+}
+
+.largertitle {
+    font-size: 60px;
+    text-shadow: rgba(255,255,255,0.2) 0px 3px 3px;
+    margin-bottom: 1%;
+    margin-top: 2%;
+}
+
+.nextprev {
+    position: relative;
+    color: #393e46;
+    text-shadow: 0;
+    margin-top: 2%;
+    margin-right: 8%;
+    float: left;
+    margin-top: 30px;
+    margin-left: 8%;
+}
+
+.next {
+    float: right;
+}
+
+.trash {bottom: 0;}
+
+.tags {
+    background-color: #393e46;
+    font-style: normal;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* ///////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////   RESPONSIVE  ///////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////// */
+
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.13%; }
+.span_1_of_3 { width: 32.26%; }
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+
+@media only screen and (min-width: 670px) and (max-width: 919px){
+	.col {  margin: 1% 0 1% 0%; }
+	.span_2_of_3, .span_1_of_3 { width: 50%; }
+    h1 { font-size: 50px;}
+    .inputtitle {width: 20%;}
+}
+
+@media only screen and (max-width: 669px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+    h1 { font-size: 50px; }
+    .grid_2_col {
+        width: 100%;
+    }
+    .twocolgrid {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+    .inputtitle {width: 251px;}
+}

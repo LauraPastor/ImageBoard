@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+    <title>Image Board</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+
+    <div id="main">
+        <header>
+
+                <h1>How Dracula do you feel today?</h1><i class=""></i>
+
+        </header>
+
+        <!-- v-model doesnt work with files! -->
+        <div class="uploadfield">
+            <input class="inputtitle" v-model="imageToUpload.title" type="text" name="title" value="" placeholder="Image Title">
+            <input v-model="imageToUpload.desc" type="text" name="desc" value="" placeholder="Description">
+            <input v-model="imageToUpload.user" type="text" name="user" value="" placeholder="UserName">
+
+            <input ref="fileInput" class="file" type="file" name="file" accept="image/*" @change="handleFileChange">
+            <button :disabled="buttondisabled" v-on:click="upload" name="button">Upload</button>
+        </div>
+
+        <div v-if="newimage && pagecount == 0" class="newimages">
+            <a href="/"><h2>New mood</h2></a>
+        </div>
+
+        <div v-if="clickedontag" class="newimages">
+            <a href="/"><h2>Showing all images with {{clickedontag}} in</h2></a>
+        </div>
+
+        <div class="section group">
+            <div v-for="image in images" class="col span_1_of_4" v-if="images.length" :key="image.id" @deleted="initialise">
+                <div class="image">
+                    <a :href="'#' + image.id">
+                        <img class="mainimages" :src="image.url" :alt="image.title">
+                    </a>
+                    <p class="title" v-on:click="modalpopup(image.id)" >{{image.title}}
+                </div>
+            </div>
+        </div>
+
+        <div class="pagbuttonscontainer">
+            <div v-if="pagecount > 0">
+                <button class="pagination" v-on:click="previousimages">Back to castle </button>
+            </div>
+            <div v-if="images.length && images.length > 11 && images[images.length - 1].id != lastImage">
+                <button class="pagination" v-on:click="nextimages">See more states</button>
+            </div>
+        </div>
+
+        <image-modal v-if="imageId" :id="imageId" @close="closeModal" @changed="updateimages" @deleted="initialise" @removetag="resettag"> </image-modal>
+
+    </div>
+
+    <script type="text/x-template" id="modal">
+        <!-- It needs to have only 1 ELEMENT!! -->
+        <div class="modal">
+
+            <div class="maincontent" v-for="image in imageData" v-if="imageData.length">
+
+                <div class="gridheader">
+                    <i v-on:click="close" class="fas fa-times fa-2x close"></i>
+                    <div class="modalheader">
+
+                        <h1 class="imagetitle">{{image.title}}</h1>
+
+                    </div>
+                    <div class="headerpart2">
+                        <div class="modalheader">
+                            <p class="extrainfo submitted">
+                                Submitted by: {{image.username}}
+                            </p>
+                            <p class="extrainfo">
+                                Description: {{image.description}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="twocolgrid">
+                    <div class="grid_2_col bigimage">
+                        <img class="mainimage" :src="image.url" :alt="image.title">
+                    </div>
+
+                    <div class="grid_2_col">
+
+
+                        </h2>
+                        <h2 class="inline">Add a Comment</h2>
+                        <div class="commentuploadfield inline">
+                            <input  v-model="commentToUpload.comment" type="text" name="comment" value="" placeholder="Comment">
+                            <input v-model="commentToUpload.user" type="text" name="user" value="" placeholder="Username">
+                            <button :disabled="buttondisabled" v-on:click="commentupload" name="button">Submit</button>
+                        </div>
+                        <div class="grid">
+                            <p v-for="comment in comments" v-if="comments.length" class="gridcol">
+                                <span>Comment By:</span>&ensp; {{comment.username}}<br><br>
+                                {{comment.comment}}
+                            </p>
+                            <i @click="deleteimage" class="fas fa-trash-alt fa-2x close trash"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </script>
+
+    <script src="/js/vue.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

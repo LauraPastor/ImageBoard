@@ -1,0 +1,23 @@
+model closeModal
+comment
+
+1. create image modal component with a template that covers entire screen
+    * single wrapping element in the component's template to be fixed position with top, right, bottom, left set to 0
+2. add a `v-if` to component element that hides it if current image id is not set on the parent
+3. give vue instance a click handler function that sets the current image id and call it on click of the image cards. this should make the modal appear
+4. in addition to the `v-if`, pass the current image id to the modal component as a prop.
+5. in the `mounted` function of the modal component make one or more ajax requests with axios to get the image data and the image comments by the id.
+    * you will need one or two GET routes that do queries to get image info and comments by id
+6. when the ajax request(s) is successful, set data properties on the component. This should cause the template for the component to re-render and show the image data and the comments.
+7. give the component a click handler that emits a custom event
+8. in addition to the `v-if` and the id prop, add to the modal tag in the main template a `v-on` that listens for the custom event
+    * the handler for the custom event should be a method of the main Vue instance that sets the current image id to null, causing the modal to vanish
+9. Add the ability to make a comment.
+    * gather text from the input fields via `v-model`
+        ```
+        axios.post('/comment/add', {
+            imageId: this.id,
+            comment: this.comment.text,
+            username: this.comment.username
+        });
+        ```
